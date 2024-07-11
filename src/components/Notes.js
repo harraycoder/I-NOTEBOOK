@@ -12,7 +12,7 @@ const Notes = () => {
   let navigate=useNavigate();
   const { notes, getNotes,editNote } = context;
   useEffect(()=>{
-    if (localStorage.getItem('token')){    //if user are alredy login so getNotes()  are show other wise  login page are show you can not go in getnote page
+    if (localStorage.getItem('token')){  
     getNotes()
     }
     else{
@@ -29,19 +29,18 @@ const Notes = () => {
  const updateNote=(currentNote)=>{
     ref.current.click();
    
-    setNote({id:currentNote._id,etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag})   //if i click the edite button so current node automatic  text is show in edite note button form
- }
+    setNote({id:currentNote._id,etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag})   
 
 
  const hc=(e)=>{
     e.preventDefault();    //no relode
     editNote(note.id,note.etitle,note.edescription,note.etag);
-    refClose.current.click();          //close update notes
+    refClose.current.click();        
 
  console.log(note)
 }
-const oc=(e)=>{                                 //(e) is the parameter of the arrow function,
-setNote({...note,[e.target.name]:e.target.value})   //Spread Operator (...):...note spreads the current state (note object) into a new object. This is done to ensure that the existing key-value pairs in the state are retained.
+const oc=(e)=>{                            
+setNote({...note,[e.target.name]:e.target.value})   
 }
 
 
@@ -59,14 +58,14 @@ setNote({...note,[e.target.name]:e.target.value})   //Spread Operator (...):...n
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body">
-        {/* upadate note is write hear */}
+     
         <form>
 
 <div className="mb-3">
   <label htmlFor=" title" className="form-label">title</label>
   <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" value={note.etitle} onChange={oc} minLength={5} required/>
 </div>
-  {/* value={}==automatic  text is show in edite note */}
+
 
 <div className="mb-3">
   <label htmlFor="description" className="form-label">Description</label>
@@ -97,7 +96,7 @@ setNote({...note,[e.target.name]:e.target.value})   //Spread Operator (...):...n
         {notes.length===0 && 'No notes to display'}
         </div> */}
         {notes.map((note) => {
-          return <Noteitem key={note._id}  note={note} updateNote={updateNote}/>; //  return note.name     key  always unique
+          return <Noteitem key={note._id}  note={note} updateNote={updateNote}/>; 
         })}
       </div>
     </>
