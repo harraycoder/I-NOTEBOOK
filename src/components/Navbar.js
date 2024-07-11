@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   let navigate=useNavigate();
-  const handelLogout=()=>{              //if you can logout so you can show in login page 
+  const handelLogout=()=>{              
     localStorage.removeItem('token');
     navigate('/login')
   }
