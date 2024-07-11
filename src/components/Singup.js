@@ -8,7 +8,7 @@ const Singup = () => {
         
         const hs=async (e)=>{
         e.preventDefault();
-        // const {name,email,password}=cred;
+        
         const response = await fetch("http://localhost:5000/api/auth/createuser", {  
          method: "POST",
    
@@ -20,18 +20,17 @@ const Singup = () => {
        const json=await response.json()
        console.log(json)
        if(json.success){
-         //save the auth token and redirect
+       
          localStorage.setItem('token',json.token);
-         navigate("/");                    //This means it would redirect or render the component associated with the root route 
-         //if you are click submit button on login page after then featc api show like this http://localhost:3000 and you can show all the data your add notes
+         navigate("/");                  
  
        }else{
          alert("Invalid email id")
        }
      }
-     const oc=(e)=>{                                 //(e) is the parameter of the arrow function,
-         setCred({...cred,[e.target.name]:e.target.value})   //Spread Operator (...):...note spreads the current state (note object) into a new object. This is done to ensure that the existing key-value pairs in the state are retained.
-         }        //add email and so on
+     const oc=(e)=>{                               
+         setCred({...cred,[e.target.name]:e.target.value}) 
+         }        
  
   return (
     <div className='container my-3'>
