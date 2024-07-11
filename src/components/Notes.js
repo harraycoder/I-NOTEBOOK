@@ -23,7 +23,7 @@ const Notes = () => {
   
 
   const ref=useRef(null)
-  const refClose=useRef(null)  //if i click on update button so button are closed
+  const refClose=useRef(null)  
   const[note,setNote]=useState({id:"",etitle:"",edescription:"",etag:"default"})
 
  const updateNote=(currentNote)=>{
@@ -33,7 +33,7 @@ const Notes = () => {
 
 
  const hc=(e)=>{
-    e.preventDefault();    //no relode
+    e.preventDefault();    
     editNote(note.id,note.etitle,note.edescription,note.etag);
     refClose.current.click();        
 
