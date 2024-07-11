@@ -10,10 +10,10 @@ const Addnotes = () => {
     const hc=(e)=>{
         e.preventDefault();    //no relode
      addNote(note.title,note.description,note.tag);
-    setNote({title:"",description:"",tag:""})   //if i can add not and click add note button  after that all note from title,dis,tag box are clean
+    setNote({title:"",description:"",tag:""})   
     }
-    const oc=(e)=>{                                 //(e) is the parameter of the arrow function,
-    setNote({...note,[e.target.name]:e.target.value})   //Spread Operator (...):...note spreads the current state (note object) into a new object. This is done to ensure that the existing key-value pairs in the state are retained.
+    const oc=(e)=>{                                
+    setNote({...note,[e.target.name]:e.target.value}) 
     }
 
     
