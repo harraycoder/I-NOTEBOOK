@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';//The useNavigate hook is part of the react-router-dom package that allows programmatic routing inside a React application. The method returns a function that can be invoked with a URI Universal Resource Identifier to redirect the client to the respective page
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -22,16 +22,16 @@ const Login = () => {
       if(json.success){
         //save the auth token and redirect
         localStorage.setItem('token',json.token);
-        navigate("/");                    //This means it would redirect or render the component associated with the root route 
-        //if you are click submit button on login page after then featc api show like this http://localhost:3000 and you can show all the data your add notes
+        navigate("/");                    
+       
 
       }else{
       //  alert("Invalid email id")
       console.log("Invalid email id")
       }
     }
-    const oc=(e)=>{                                 //(e) is the parameter of the arrow function,
-        setCred({...cred,[e.target.name]:e.target.value})   //Spread Operator (...):...note spreads the current state (note object) into a new object. This is done to ensure that the existing key-value pairs in the state are retained.
+    const oc=(e)=>{                                
+        setCred({...cred,[e.target.name]:e.target.value})   
         }
 
   return (
